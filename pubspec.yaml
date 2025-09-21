@@ -11,6 +11,8 @@ dependencies:
   eva_icons_flutter: ^3.1.0
   flutter:
     sdk: flutter
+  flutter_native_splash: ^2.4.4
+  
   get_storage: ^2.1.1
   google_fonts: ^6.3.0
   http: ^1.5.0
@@ -26,7 +28,9 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
-    - assets/images/
+    - assets/images/splash-screen.png
+    - assets/images/splash_lets.png
+    - assets/images/google_logo.png
     - assets/icons/
 
 flutter_gen:

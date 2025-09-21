@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tailor_project/representative/screen/home_fragment/home_fragment_screen.dart';
+import 'package:tailor_project/representative/screen/authentication/splash_screen.dart';
+
 
 void main() {
   runApp(const MainApp());
@@ -12,7 +13,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeFragmentScreen(), // Change to MainFragmentScreen later
+      home: SplashScreen(), 
     );
   }
 }
