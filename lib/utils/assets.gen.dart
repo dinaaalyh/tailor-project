@@ -15,66 +15,41 @@ class $AssetsIconsGen {
   /// File path: assets/icons/file.png
   AssetGenImage get file => const AssetGenImage('assets/icons/file.png');
 
-  /// File path: assets/icons/fish-active-icon.png
-  AssetGenImage get fishActiveIcon =>
-      const AssetGenImage('assets/icons/fish-active-icon.png');
+  /// File path: assets/icons/profile-active-icon.png
+  AssetGenImage get profileActiveIcon => const AssetGenImage('assets/icons/profile-active-icon.png');
 
-  /// File path: assets/icons/fish-deactive-icon.png
-  AssetGenImage get fishDeactiveIcon =>
-      const AssetGenImage('assets/icons/fish-deactive-icon.png');
+  /// File path: assets/icons/profile-deactive-icon.png
+  AssetGenImage get profileDeactiveIcon => const AssetGenImage('assets/icons/profile-deactive-icon.png');
 
   /// File path: assets/icons/history-active-icon.png
-  AssetGenImage get historyActiveIcon =>
-      const AssetGenImage('assets/icons/history-active-icon.png');
+  AssetGenImage get historyActiveIcon => const AssetGenImage('assets/icons/history-active-icon.png');
 
   /// File path: assets/icons/history-deactive-icon.png
-  AssetGenImage get historyDeactiveIcon =>
-      const AssetGenImage('assets/icons/history-deactive-icon.png');
+  AssetGenImage get historyDeactiveIcon => const AssetGenImage('assets/icons/history-deactive-icon.png');
+
+  /// File path: assets/icons/explore-active-icon.png
+  AssetGenImage get exploreActiveIcon => const AssetGenImage('assets/icons/explore-active-icon.png');
+
+  /// File path: assets/icons/explore-deactive-icon.png
+  AssetGenImage get exploreDeactiveIcon => const AssetGenImage('assets/icons/explore-deactive-icon.png');
 
   /// File path: assets/icons/home-active-icon.png
-  AssetGenImage get homeActiveIcon =>
-      const AssetGenImage('assets/icons/home-active-icon.png');
+  AssetGenImage get homeActiveIcon => const AssetGenImage('assets/icons/home-active-icon.png');
 
   /// File path: assets/icons/home-deactive-icon.png
-  AssetGenImage get homeDeactiveIcon =>
-      const AssetGenImage('assets/icons/home-deactive-icon.png');
-
-  /// File path: assets/icons/ic-fish-aquarium.png
-  AssetGenImage get icFishAquarium =>
-      const AssetGenImage('assets/icons/ic-fish-aquarium.png');
-
-  /// File path: assets/icons/ic-pool.png
-  AssetGenImage get icPool => const AssetGenImage('assets/icons/ic-pool.png');
-
-  /// File path: assets/icons/ic-two-fish.png
-  AssetGenImage get icTwoFish =>
-      const AssetGenImage('assets/icons/ic-two-fish.png');
-
-  /// File path: assets/icons/ic_cs.png
-  AssetGenImage get icCs => const AssetGenImage('assets/icons/ic_cs.png');
-
-  /// File path: assets/icons/note.png
-  AssetGenImage get note => const AssetGenImage('assets/icons/note.png');
-
-  /// File path: assets/icons/search-fish.png
-  AssetGenImage get searchFish =>
-      const AssetGenImage('assets/icons/search-fish.png');
+  AssetGenImage get homeDeactiveIcon => const AssetGenImage('assets/icons/home-deactive-icon.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [
         file,
-        fishActiveIcon,
-        fishDeactiveIcon,
+        profileActiveIcon,
+        profileDeactiveIcon,
         historyActiveIcon,
         historyDeactiveIcon,
+        exploreActiveIcon,
+        exploreDeactiveIcon,
         homeActiveIcon,
         homeDeactiveIcon,
-        icFishAquarium,
-        icPool,
-        icTwoFish,
-        icCs,
-        note,
-        searchFish
       ];
 }
 
@@ -88,20 +63,22 @@ class $AssetsImagesGen {
   AssetGenImage get lele => const AssetGenImage('assets/images/lele.jpeg');
 
   /// File path: assets/images/logo_mitra_panen.png
-  AssetGenImage get logoMitraPanen =>
-      const AssetGenImage('assets/images/logo_mitra_panen.png');
+  AssetGenImage get logoMitraPanen => const AssetGenImage('assets/images/logo_mitra_panen.png');
 
   /// File path: assets/images/mitra_panen_illust.png
-  AssetGenImage get mitraPanenIllust =>
-      const AssetGenImage('assets/images/mitra_panen_illust.png');
+  AssetGenImage get mitraPanenIllust => const AssetGenImage('assets/images/mitra_panen_illust.png');
 
   /// File path: assets/images/questions.png
-  AssetGenImage get questions =>
-      const AssetGenImage('assets/images/questions.png');
+  AssetGenImage get questions => const AssetGenImage('assets/images/questions.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [file, lele, logoMitraPanen, mitraPanenIllust, questions];
+  List<AssetGenImage> get values => [
+        file,
+        lele,
+        logoMitraPanen,
+        mitraPanenIllust,
+        questions
+      ];
 }
 
 class Assets {
