@@ -1,6 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:tailor_project/representative/screen/authentication/signup_screen.dart';
+import 'package:tailor_project/representative/widget/app_text_field.dart';
+import 'package:tailor_project/utils/assets.gen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -13,7 +14,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _usernameC = TextEditingController();
   final _passwordC = TextEditingController();
-  bool _obscure = true;
   bool _loading = false;
 
   @override
@@ -62,10 +62,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         // Ganti asset sesuai punyamu
                         SizedBox(
                           height: 180,
-                          child: Image.asset(
-                            'assets/images/splash-screen.png',
-                            fit: BoxFit.contain,
-                          ),
+                          child: Assets.images.SplashScreen
+                              .image(fit: BoxFit.contain),
                         ),
                         const SizedBox(height: 8),
                         Text(
@@ -96,62 +94,30 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Column(
                       children: [
                         // USERNAME
-                        TextFormField(
+                        AppTextField(
                           controller: _usernameC,
-                          style: const TextStyle(color: Colors.black87),
-                          decoration: InputDecoration(
-                            hintText: 'Name/Username',
-                            prefixIcon: const Icon(Icons.person_outline),
-                            filled: true,
-                            fillColor: const Color(0xffFAFDEF),
-                            contentPadding: const EdgeInsets.symmetric(
-                              vertical: 14,
-                              horizontal: 12,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide: BorderSide.none,
-                            ),
-                            errorStyle: const TextStyle(color: Colors.white), 
-                          ),
+                          hint: 'Name/Username',
+                          prefixIcon: Icons.person_outline,
                           validator: (v) => (v == null || v.trim().isEmpty)
                               ? 'Wajib diisi'
                               : null,
+                          textInputAction: TextInputAction.next,
+                          keyboardType: TextInputType.name,
                         ),
                         const SizedBox(height: 12),
 
                         // PASSWORD
-                        TextFormField(
+                        AppTextField(
                           controller: _passwordC,
-                          obscureText: _obscure,
-                          style: const TextStyle(color: Colors.black87),
-                          decoration: InputDecoration(
-                            hintText: 'Password',
-                            prefixIcon: const Icon(Icons.lock_outline),
-                            suffixIcon: IconButton(
-                              onPressed: () =>
-                                  setState(() => _obscure = !_obscure),
-                              icon: Icon(
-                                _obscure
-                                    ? Icons.visibility_off
-                                    : Icons.visibility,
-                              ),
-                            ),
-                            filled: true,
-                            fillColor: const Color(0xffFAFDEF),
-                            contentPadding: const EdgeInsets.symmetric(
-                              vertical: 14,
-                              horizontal: 12,
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide: BorderSide.none,
-                            ),
-                            errorStyle: const TextStyle(color: Colors.white), 
-                          ),
+                          hint: 'Password',
+                          prefixIcon: Icons.lock_outline,
+                          isPassword: true,
                           validator: (v) => (v == null || v.length < 6)
                               ? 'Min. 6 karakter'
                               : null,
+                          textInputAction: TextInputAction.done,
+                          onSubmitted: (_) =>
+                              _onLogin(), // enter langsung login (opsional)
                         ),
                       ],
                     ),
@@ -222,14 +188,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         foregroundColor: Colors.black87,
                         side: const BorderSide(color: Colors.transparent),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
+                            borderRadius: BorderRadius.circular(8)),
                       ),
                       onPressed: _onGoogle,
-                      icon: Image.asset(
-                        'assets/images/google_logo.png', // 24x24
-                        width: 22, height: 22,
-                      ),
+                      icon:
+                          Assets.images.googleLogo.image(width: 22, height: 22),
                       label: const Text(
                         'Lanjut dengan Google',
                         style: TextStyle(fontWeight: FontWeight.w600),

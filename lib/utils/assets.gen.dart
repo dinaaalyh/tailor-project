@@ -8,6 +8,7 @@
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
+import 'package:tailor_project/representative/screen/authentication/splash_screen.dart';
 
 class $AssetsIconsGen {
   const $AssetsIconsGen();
@@ -71,13 +72,24 @@ class $AssetsImagesGen {
   /// File path: assets/images/questions.png
   AssetGenImage get questions => const AssetGenImage('assets/images/questions.png');
 
+  /// File path: assets/images/splash-screen.png
+  AssetGenImage get SplashScreen => const AssetGenImage('assets/images/splash-screen.png');
+
+  /// File path: assets/images/splash-screen.png
+  AssetGenImage get googleLogo => const AssetGenImage('assets/images/google_logo.png');
+
+  /// File path: assets/images/splash-screen.png
+  AssetGenImage get SplashLets => const AssetGenImage('assets/images/splash_lets.png');
   /// List of all assets
   List<AssetGenImage> get values => [
         file,
         lele,
         logoMitraPanen,
         mitraPanenIllust,
-        questions
+        questions,
+        SplashScreen,
+        googleLogo,
+        SplashLets,
       ];
 }
 

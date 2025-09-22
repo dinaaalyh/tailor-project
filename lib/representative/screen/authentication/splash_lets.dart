@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tailor_project/representative/screen/authentication/login_screen.dart';
+import 'package:tailor_project/utils/assets.gen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -17,10 +18,7 @@ class WelcomeScreen extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 2),
                 child: IgnorePointer(
-                  child: Image.asset(
-                    'assets/images/splash_lets.png',
-                    fit: BoxFit.contain,
-                  ),
+                  child: Assets.images.SplashLets.image(fit: BoxFit.contain),
                 ),
               ),
             ),

@@ -30,9 +30,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
-    - assets/images/splash-screen.png
-    - assets/images/splash_lets.png
-    - assets/images/google_logo.png
+    - assets/images/
     - assets/icons/
 
 flutter_gen:
