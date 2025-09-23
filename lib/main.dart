@@ -28,7 +28,7 @@ class MainApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: ShowProductBaju(),
+        home: MainFragmentScreen(),
       ),
     );
   }

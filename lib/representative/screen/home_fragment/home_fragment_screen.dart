@@ -2,7 +2,10 @@ import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:tailor_project/representative/models/designer_collection_models.dart';
+import 'package:tailor_project/representative/screen/designer_collection.dart';
 import 'package:tailor_project/representative/screen/explore_fragment/explore_fragment_screen.dart';
+import 'package:tailor_project/representative/screen/show_product.dart';
 import 'package:tailor_project/utils/assets.gen.dart';
 import 'package:tailor_project/utils/colors.dart';
 
@@ -154,7 +157,7 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.0),
-            borderSide: const BorderSide(color: border, width: 2),
+            borderSide: const BorderSide(color: textColorBlue, width: 2),
           ),
         ),
       ),
@@ -183,7 +186,7 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ExploreFragmentScreen(), // ganti ke halaman tujuan
+                      builder: (context) => const DesignerCollection(),
                     ),
                   );
                 },
@@ -198,21 +201,110 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
               )
             ],
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 10),
           SizedBox(
-            height: 250,
+            height: 200,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 5,
               itemBuilder: (context, index) {
                 return Container(
-                  width: 160,
-                  margin: const EdgeInsets.only(right: 16.0),
-                  decoration: BoxDecoration(color: white),
+                  width: 140,
+                  margin: const EdgeInsets.only(right: 10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: productImages[index].image(
+                          width: 140,
+                          height: 140,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        productNames[index],
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
                 );
               },
             ),
           ),
+          // SizedBox(
+          //   height: 250,
+          //   child: ListView.builder(
+          //     scrollDirection: Axis.horizontal,
+          //     itemCount: 5,
+          //     itemBuilder: (context, index) {
+          //       return Container(
+          //         width: 160,
+          //         margin: const EdgeInsets.only(right: 16.0),
+          //         decoration: BoxDecoration(
+          //           color: Colors.white,
+
+          //           borderRadius: BorderRadius.circular(12.0),
+          //           boxShadow: [
+          //             BoxShadow(
+          //               color: Colors.grey.withOpacity(0.1),
+          //               spreadRadius: 2,
+          //               blurRadius: 5,
+          //               offset: const Offset(0, 3),
+          //             ),
+          //           ],
+          //         ),
+          //         child: Column(
+          //           crossAxisAlignment: CrossAxisAlignment.start,
+          //           children: [
+          //             ClipRRect(
+          //               borderRadius: const BorderRadius.only(
+          //                 topLeft: Radius.circular(12.0),
+          //                 topRight: Radius.circular(12.0),
+          //               ),
+          //               child: Image.asset(
+          //                 Assets.images.heroBanner.path,
+          //                 height: 150,
+          //                 width: double.infinity,
+          //                 fit: BoxFit.cover,
+          //               ),
+          //             ),
+          //             Padding(
+          //               padding: const EdgeInsets.all(8.0),
+          //               child: Column(
+          //                 crossAxisAlignment: CrossAxisAlignment.start,
+          //                 children: const [
+          //                   Text(
+          //                     'Elegant Dress',
+          //                     style: TextStyle(
+          //                       fontSize: 16,
+          //                       fontWeight: FontWeight.bold,
+          //                       color: black,
+          //                     ),
+          //                   ),
+          //                   SizedBox(height: 4),
+          //                   Text(
+          //                     '\$120',
+          //                     style: TextStyle(
+          //                       fontSize: 14,
+          //                       color: primaryColor,
+          //                       fontWeight: FontWeight.bold,
+          //                     ),
+          //                   ),
+          //                 ],
+          //               ),
+          //             ),
+          //           ],
+          //         ),
+          //       );
+          //     },
+          //   ),
+          // ),
         ],
       ),
     );

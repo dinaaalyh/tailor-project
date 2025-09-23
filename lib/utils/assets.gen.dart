@@ -63,8 +63,8 @@ class $AssetsImagesGen {
   /// File path: assets/images/file.png
   AssetGenImage get file => const AssetGenImage('assets/images/file.png');
 
-  /// File path: assets/images/lele.jpeg
-  AssetGenImage get lele => const AssetGenImage('assets/images/lele.jpeg');
+  /// File path: assets/images/designer-product1.jpeg
+  AssetGenImage get designerProduct1 => const AssetGenImage('assets/images/designer-product1.png');
 
   /// File path: assets/images/hero-banner.png
   AssetGenImage get heroBanner => const AssetGenImage('assets/images/hero-banner.png');
@@ -80,61 +80,82 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/product1.png
   AssetGenImage get product1 => const AssetGenImage('assets/images/product1.png');
+
   /// File path: assets/images/product2.PNG
   AssetGenImage get product2 => const AssetGenImage('assets/images/product2.PNG');
+
   /// File path: assets/images/product3.PNG
   AssetGenImage get product3 => const AssetGenImage('assets/images/product3.png');
+
   /// File path: assets/images/product4.PNG
   AssetGenImage get product4 => const AssetGenImage('assets/images/product4.PNG');
+
   /// File path: assets/images/product5.PNG
   AssetGenImage get product5 => const AssetGenImage('assets/images/product5.PNG');
+
   /// File path: assets/images/product6.PNG
   AssetGenImage get product6 => const AssetGenImage('assets/images/product6.PNG');
+
   /// File path: assets/images/product7.PNG
   AssetGenImage get product7 => const AssetGenImage('assets/images/product7.PNG');
+
   /// File path: assets/images/product8.PNG
   AssetGenImage get product8 => const AssetGenImage('assets/images/product8.PNG');
 
   //celana
   /// File path: assets/images/celana1.png
   AssetGenImage get celana1 => const AssetGenImage('assets/images/celana1.png');
+
   /// File path: assets/images/celana2.png
   AssetGenImage get celana2 => const AssetGenImage('assets/images/celana2.png');
+
   /// File path: assets/images/celana3.png
   AssetGenImage get celana3 => const AssetGenImage('assets/images/celana3.png');
+
   /// File path: assets/images/celana4.png
   AssetGenImage get celana4 => const AssetGenImage('assets/images/celana4.png');
+
   /// File path: assets/images/celana5.png
   AssetGenImage get celana5 => const AssetGenImage('assets/images/celana5.png');
+
   /// File path: assets/images/celana6.png
   AssetGenImage get celana6 => const AssetGenImage('assets/images/celana6.png');
+
   /// File path: assets/images/celana7.png
   AssetGenImage get celana7 => const AssetGenImage('assets/images/celana7.png');
+
   /// File path: assets/images/celana8.png
   AssetGenImage get celana8 => const AssetGenImage('assets/images/celana8.png');
 
   //baju
   /// File path: assets/images/baju1.png
   AssetGenImage get baju1 => const AssetGenImage('assets/images/baju1.png');
+
   /// File path: assets/images/baju2.jpeg
   AssetGenImage get baju2 => const AssetGenImage('assets/images/baju2.jpeg');
+
   /// File path: assets/images/baju3.jpeg
   AssetGenImage get baju3 => const AssetGenImage('assets/images/baju3.jpeg');
+
   /// File path: assets/images/baju4.jpeg
   AssetGenImage get baju4 => const AssetGenImage('assets/images/baju4.jpeg');
+
   /// File path: assets/images/baju5.png
   AssetGenImage get baju5 => const AssetGenImage('assets/images/baju5.png');
+
   /// File path: assets/images/baju6.jpeg
   AssetGenImage get baju6 => const AssetGenImage('assets/images/baju6.jpeg');
+
   /// File path: assets/images/baju7.jpeg
   AssetGenImage get baju7 => const AssetGenImage('assets/images/baju7.jpeg');
+
   /// File path: assets/images/baju8.jpeg
   AssetGenImage get baju8 => const AssetGenImage('assets/images/baju8.jpeg');
 
   /// List of all assets
   List<AssetGenImage> get values => [
         file,
-        lele,
+        designerProduct1,
         SplashScreen,
         googleLogo,
         SplashLets,
