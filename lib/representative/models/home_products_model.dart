@@ -13,7 +13,7 @@ final productNames = [
   "Produk 2",
   "Produk 3",
   "Produk 4",
-  "Produk 5",
+  "Produk 5", 
 ];
 
 final productDescription = [
