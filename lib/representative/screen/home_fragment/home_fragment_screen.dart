@@ -1,11 +1,9 @@
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:tailor_project/representative/models/designer_collection_models.dart';
+import 'package:tailor_project/representative/models/home_products_model.dart';
 import 'package:tailor_project/representative/screen/designer_collection.dart';
-import 'package:tailor_project/representative/screen/explore_fragment/explore_fragment_screen.dart';
-import 'package:tailor_project/representative/screen/show_product.dart';
+import 'package:tailor_project/representative/screen/top_trends.dart';
 import 'package:tailor_project/utils/assets.gen.dart';
 import 'package:tailor_project/utils/colors.dart';
 
@@ -34,17 +32,10 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Hero Banner Section
               _buildHeroBanner(),
-
-              // Search Bar
               _buildSearchBar(),
-
-              // Designer Collection Section
               _buildDesignerCollection(),
-
-              // Top Trends Section
-              // _buildTopTrends(),
+              _buildTopTrends(),
             ],
           ),
         ),
@@ -54,7 +45,6 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
 
   Widget _buildHeroBanner() {
     return Stack(
-      // alignment: Alignment.bottomLeft,
       children: [
         CarouselSlider.builder(
           itemCount: bannerImages.length,
@@ -119,7 +109,7 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
                 ),
               ),
               child: const Text(
-                'Shop All',
+                'Show All',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 14,
@@ -135,7 +125,7 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
 
   Widget _buildSearchBar() {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
       child: TextField(
         decoration: InputDecoration(
           hintText: 'Search for products',
@@ -166,7 +156,7 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
 
   Widget _buildDesignerCollection() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -203,7 +193,7 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
           ),
           const SizedBox(height: 10),
           SizedBox(
-            height: 200,
+            height: 190,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 5,
@@ -237,74 +227,103 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
               },
             ),
           ),
-          // SizedBox(
-          //   height: 250,
-          //   child: ListView.builder(
-          //     scrollDirection: Axis.horizontal,
-          //     itemCount: 5,
-          //     itemBuilder: (context, index) {
-          //       return Container(
-          //         width: 160,
-          //         margin: const EdgeInsets.only(right: 16.0),
-          //         decoration: BoxDecoration(
-          //           color: Colors.white,
+        ],
+      ),
+    );
+  }
 
-          //           borderRadius: BorderRadius.circular(12.0),
-          //           boxShadow: [
-          //             BoxShadow(
-          //               color: Colors.grey.withOpacity(0.1),
-          //               spreadRadius: 2,
-          //               blurRadius: 5,
-          //               offset: const Offset(0, 3),
-          //             ),
-          //           ],
-          //         ),
-          //         child: Column(
-          //           crossAxisAlignment: CrossAxisAlignment.start,
-          //           children: [
-          //             ClipRRect(
-          //               borderRadius: const BorderRadius.only(
-          //                 topLeft: Radius.circular(12.0),
-          //                 topRight: Radius.circular(12.0),
-          //               ),
-          //               child: Image.asset(
-          //                 Assets.images.heroBanner.path,
-          //                 height: 150,
-          //                 width: double.infinity,
-          //                 fit: BoxFit.cover,
-          //               ),
-          //             ),
-          //             Padding(
-          //               padding: const EdgeInsets.all(8.0),
-          //               child: Column(
-          //                 crossAxisAlignment: CrossAxisAlignment.start,
-          //                 children: const [
-          //                   Text(
-          //                     'Elegant Dress',
-          //                     style: TextStyle(
-          //                       fontSize: 16,
-          //                       fontWeight: FontWeight.bold,
-          //                       color: black,
-          //                     ),
-          //                   ),
-          //                   SizedBox(height: 4),
-          //                   Text(
-          //                     '\$120',
-          //                     style: TextStyle(
-          //                       fontSize: 14,
-          //                       color: primaryColor,
-          //                       fontWeight: FontWeight.bold,
-          //                     ),
-          //                   ),
-          //                 ],
-          //               ),
-          //             ),
-          //           ],
-          //         ),
-          //       );
-          //     },
-          //   ),
-          // ),
+  Widget _buildTopTrends() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Top Trends',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: black,
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TopTrends(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Show All',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: grey,
+                  ),
+                ),
+              )
+            ],
+          ),
+          const SizedBox(height: 10),
+          SizedBox(
+            height: 120,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return Container(
+                  width: 220,
+                  margin: const EdgeInsets.only(right: 10.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: productImages[index].image(
+                          width: 65,
+                          height: 65,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              productNames[index],
+                              style: const TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              productDescription[index],
+                              style: const TextStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.normal,
+                              ),
+                              textAlign: TextAlign.left,
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          )
         ],
       ),
     );

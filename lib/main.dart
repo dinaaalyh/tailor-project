@@ -26,7 +26,7 @@ class MainApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => mainFragmentBloc),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: MainFragmentScreen(),
       ),
