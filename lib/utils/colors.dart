@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 const bg = Color(0xff006171);
 const fontproduct = Color(0xff5C5C5C);
 
-const primaryColor = Color(0xFF0194F3);
+const primaryColor = Color(0xff006171);
 const secondaryColor = Color(0xFFF7F5FF);
 const primaryDarkColor = Color(0xFF212121);
 const primaryLightColor = Color(0xFF5A6472);
 
 const background = Color(0xFFF6F7F9);
+const hint = Color(0xFFA4A2A2);
+const button = Color(0xFF01808B);
+const searchBar = Color(0xFFFAFAFA);
 const transparent = Color(0x00000000);
 const white = Color(0xFFFFFFFF);
 const black = Color(0xFF21232C);
-const grey = Color(0xFF777C7E);
+const grey = Color(0xFFA4A2A2);
 const grey2 = Color(0xFF9CA3AF);
 
 const green = Color(0xFF29C38A);
@@ -43,7 +46,7 @@ const silver = Color(0xFFE5E5E5);
 const bottomNavColor = Color(0xFFF9F9F9);
 const scaffoldColor = Color(0xFFF6F7F9);
 const elevationColor = Color(0xFF1F29371A);
-const border = Color(0xFFE3E5E8);
+const border = Color.fromARGB(255, 235, 235, 235);
 
 const onProgress = Color(0xFFFFA500);
 const success = Color(0xFF16A34A);

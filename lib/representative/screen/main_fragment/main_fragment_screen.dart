@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tailor_project/data/state/bloc/main_fragment_bloc/main_fragment_bloc.dart';
 import 'package:tailor_project/main.dart';
+import 'package:tailor_project/representative/screen/explore_fragment/explore_fragment_screen.dart';
 import 'package:tailor_project/representative/screen/history_fragment/history_fragment_screen.dart';
 import 'package:tailor_project/representative/screen/home_fragment/home_fragment_screen.dart';
 import 'package:tailor_project/representative/screen/profile_fragment/profile_fragment_screen.dart';
@@ -40,7 +41,7 @@ class MainFragmentScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           body: [
             const HomeFragmentScreen(),
-            const HistoryFragmentScreen(),
+            const ExploreFragmentScreen(),
             const HistoryFragmentScreen(),
             const ProfileFragmentScreen(),
           ][state.selectedIndex],
@@ -94,14 +95,12 @@ class IconWithColor {
 IconWithColor getIcon(String assetName, bool isSelected) {
   final color = isSelected ? const Color(0xFF2E5A5A) : Colors.grey;
   return IconWithColor(
-    SizedBox(
-      width: 28,
-      height: 28,
-      child: Image.asset(
-        assetName,
-        color: color,
-        fit: BoxFit.contain,
-      ),
+    Image.asset(
+      assetName,
+      color: color,
+      width: 30,
+      height: 30,
+      fit: BoxFit.contain,
     ),
     color,
   );

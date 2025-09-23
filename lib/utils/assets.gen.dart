@@ -12,8 +12,11 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/icons/file.png
-  AssetGenImage get file => const AssetGenImage('assets/icons/file.png');
+  /// File path: assets/icons/cart-icon.png
+  AssetGenImage get cartIcon => const AssetGenImage('assets/icons/cart-icon.png');
+
+  /// File path: assets/icons/profile-icon.png
+  AssetGenImage get profileIcon => const AssetGenImage('assets/icons/profile-icon.png');
 
   /// File path: assets/icons/profile-active-icon.png
   AssetGenImage get profileActiveIcon => const AssetGenImage('assets/icons/profile-active-icon.png');
@@ -41,7 +44,8 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
-        file,
+        cartIcon,
+        profileIcon,
         profileActiveIcon,
         profileDeactiveIcon,
         historyActiveIcon,
@@ -62,14 +66,8 @@ class $AssetsImagesGen {
   /// File path: assets/images/lele.jpeg
   AssetGenImage get lele => const AssetGenImage('assets/images/lele.jpeg');
 
-  /// File path: assets/images/logo_mitra_panen.png
-  AssetGenImage get logoMitraPanen => const AssetGenImage('assets/images/logo_mitra_panen.png');
-
-  /// File path: assets/images/mitra_panen_illust.png
-  AssetGenImage get mitraPanenIllust => const AssetGenImage('assets/images/mitra_panen_illust.png');
-
-  /// File path: assets/images/questions.png
-  AssetGenImage get questions => const AssetGenImage('assets/images/questions.png');
+  /// File path: assets/images/hero-banner.png
+  AssetGenImage get heroBanner => const AssetGenImage('assets/images/hero-banner.png');
 
   /// File path: assets/images/splash-screen.png
   AssetGenImage get SplashScreen => const AssetGenImage('assets/images/splash-screen.png');
@@ -137,9 +135,6 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [
         file,
         lele,
-        logoMitraPanen,
-        mitraPanenIllust,
-        questions,
         SplashScreen,
         googleLogo,
         SplashLets,
@@ -149,6 +144,7 @@ class $AssetsImagesGen {
         product4,
         product5,
         product6,
+        heroBanner,
       ];
 }
 
