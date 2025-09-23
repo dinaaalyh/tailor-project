@@ -16,10 +16,10 @@ class FavoriteFragmentScreen extends StatefulWidget {
   const FavoriteFragmentScreen({super.key, required this.items, this.onFavoriteRemoved,  });
 
   @override
-  State<FavoriteFragmentScreen> createState() => _FavoriteFragmentScreenState();
+  State<FavoriteFragmentScreen> createState() => FavoriteFragmentScreenState();
 }
 
-class _FavoriteFragmentScreenState extends State<FavoriteFragmentScreen> {
+class FavoriteFragmentScreenState extends State<FavoriteFragmentScreen> {
   @override
   Widget build(BuildContext context) {
     final items = widget.items;

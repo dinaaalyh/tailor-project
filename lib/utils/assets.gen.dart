@@ -12,6 +12,24 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/profile-sb-icon.png
+  AssetGenImage get profileSb => const AssetGenImage('assets/icons/profile-sb-icon.png');
+
+  /// File path: assets/icons/fav-sb-icon.png
+  AssetGenImage get favSb => const AssetGenImage('assets/icons/fav-sb-icon.png');
+
+  /// File path: assets/icons/cart-sb-icon.png
+  AssetGenImage get cartSb => const AssetGenImage('assets/icons/cart-sb-icon.png');
+
+  /// File path: assets/icons/address-sb-icon.png
+  AssetGenImage get addressSb => const AssetGenImage('assets/icons/address-sb-icon.png');
+
+  /// File path: assets/icons/info-sb-icon.png
+  AssetGenImage get infoSb => const AssetGenImage('assets/icons/info-sb-icon.png');
+
+  /// File path: assets/icons/logout-sb-icon.png
+  AssetGenImage get logoutSb => const AssetGenImage('assets/icons/logout-sb-icon.png');
+
   /// File path: assets/icons/cart-icon.png
   AssetGenImage get cartIcon => const AssetGenImage('assets/icons/cart-icon.png');
 
@@ -44,6 +62,12 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+        profileSb,
+        favSb,
+        cartSb,
+        addressSb,
+        infoSb,
+        logoutSb,
         cartIcon,
         profileIcon,
         profileActiveIcon,

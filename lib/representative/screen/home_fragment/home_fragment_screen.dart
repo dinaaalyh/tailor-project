@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:tailor_project/representative/models/home_products_model.dart';
 import 'package:tailor_project/representative/screen/designer_collection.dart';
+import 'package:tailor_project/representative/screen/profile_fragment/profile_fragment_screen.dart';
 import 'package:tailor_project/representative/screen/top_trends.dart';
 import 'package:tailor_project/utils/assets.gen.dart';
 import 'package:tailor_project/utils/colors.dart';
@@ -15,6 +16,8 @@ class HomeFragmentScreen extends StatefulWidget {
 }
 
 class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   int _activeIndex = 0;
 
   final List<String> bannerImages = [
@@ -26,7 +29,9 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      key: _scaffoldKey,
+      drawer: _buildSideBar(context),
+      backgroundColor: white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -40,6 +45,111 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildSideBar(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+        color: white,
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(10),
+          bottomRight: Radius.circular(10),
+        ),
+      ),
+      child: Drawer(
+        backgroundColor: white,
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(30, 0, 30, 30),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Center(
+                  child: Text(
+                    "My Profile",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30),
+                Row(
+                  children: [
+                    const CircleAvatar(
+                      radius: 40,
+                      backgroundColor: grey2,
+                    ),
+                    const SizedBox(width: 25),
+                    Column(
+                      children: [
+                        const Text(
+                          "NiseuuDump",
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                        const Text(
+                          "@niseuudump12",
+                          style: TextStyle(color: grey, fontSize: 12),
+                        ),
+                        const SizedBox(height: 12),
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: bg,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 6,
+                            ),
+                            minimumSize: Size.zero,
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          ),
+                          child: const Text(
+                            "Edit Profile",
+                            style: TextStyle(color: white, fontSize: 12),
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 30),
+                _buildMenuItem(Assets.icons.profileSb, "Profile", const ProfileFragmentScreen()),
+                _buildMenuItem(Assets.icons.favSb, "Favourites", const ProfileFragmentScreen()),
+                _buildMenuItem(Assets.icons.cartSb, "Keranjang", const ProfileFragmentScreen()),
+                _buildMenuItem(Assets.icons.addressSb, "Alamat", const ProfileFragmentScreen()),
+                _buildMenuItem(Assets.icons.infoSb, "Tentang Kita", const ProfileFragmentScreen()),
+                _buildMenuItem(Assets.icons.logoutSb, "Logout", const ProfileFragmentScreen()),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMenuItem(AssetGenImage icon, String title, Widget screen) {
+    return ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 5.0),
+      leading: icon.image(width: 24, height: 24),
+      title: Text(title),
+      trailing: const Icon(Icons.arrow_forward_ios, size: 20),
+      onTap: () {
+        if (title == "Logout") {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => screen),
+          );
+        } else {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => screen),
+          );
+        }
+      },
     );
   }
 
@@ -87,7 +197,12 @@ class _HomeFragmentScreenState extends State<HomeFragmentScreen> {
               children: [
                 Row(
                   children: [
-                    Assets.icons.profileIcon.image(width: 28, height: 28),
+                    GestureDetector(
+                      onTap: () {
+                        _scaffoldKey.currentState?.openDrawer();
+                      },
+                      child: Assets.icons.profileIcon.image(width: 28, height: 28),
+                    ),
                     const Spacer(),
                     Assets.icons.cartIcon.image(width: 28, height: 28),
                   ],

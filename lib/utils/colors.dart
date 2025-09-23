@@ -16,7 +16,7 @@ const transparent = Color(0x00000000);
 const white = Color(0xFFFFFFFF);
 const black = Color(0xFF21232C);
 const grey = Color(0xFFA4A2A2);
-const grey2 = Color(0xFF9CA3AF);
+const grey2 = Color(0xFFD9D9D9);
 
 const green = Color(0xFF29C38A);
 const saltedEgg = Color(0xFFC1E2F9);
