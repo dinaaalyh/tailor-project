@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tailor_project/data/state/bloc/main_fragment_bloc/main_fragment_bloc.dart';
 import 'package:tailor_project/representative/screen/detail_fragment/product_detail_screen.dart';
+import 'package:tailor_project/representative/screen/keranjang_fragment/keranjang_screen.dart';
 import 'package:tailor_project/representative/screen/main_fragment/main_fragment_screen.dart';
 
 void main() {
@@ -21,7 +22,7 @@ class MainApp extends StatelessWidget {
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: ProductDetailScreen(),
+        home: KeranjangScreen(),
       ),
     );
   }
