@@ -8,6 +8,14 @@ const secondaryColor = Color(0xFFF7F5FF);
 const primaryDarkColor = Color(0xFF212121);
 const primaryLightColor = Color(0xFF5A6472);
 
+const headerEndCard = Color(0xFF3EA2AA);
+const headerWaitCard = Color(0xFFD4B126);
+const headerProgCard = Color(0xFFD74444);
+const backgroundCard = Color(0xFFF8F8F8);
+const fontCard = Color(0xFF11555B);
+const buttonOrder = Color(0xFF44858B);
+
+const address = Color(0xFFFDFDFD);
 const background = Color(0xFFF6F7F9);
 const hint = Color(0xFFA4A2A2);
 const button = Color(0xFF01808B);
@@ -48,6 +56,7 @@ const scaffoldColor = Color(0xFFF6F7F9);
 const elevationColor = Color(0xFF1F29371A);
 const border = Color.fromARGB(255, 235, 235, 235);
 
-const onProgress = Color(0xFFFFA500);
+const onWaiting = Color(0xFFD4B126);
+const onProgress = Color(0xFF890606);
 const success = Color(0xFF16A34A);
 const failed = Color(0xFFDC2626);

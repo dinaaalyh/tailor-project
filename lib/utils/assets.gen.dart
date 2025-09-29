@@ -126,6 +126,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/product8.PNG
   AssetGenImage get product8 => const AssetGenImage('assets/images/product8.PNG');
 
+  /// File path: assets/images/product9.PNG
+  AssetGenImage get product9 => const AssetGenImage('assets/images/product9.png');
+
   //celana
   /// File path: assets/images/celana1.png
   AssetGenImage get celana1 => const AssetGenImage('assets/images/celana1.png');
@@ -189,6 +192,7 @@ class $AssetsImagesGen {
         product4,
         product5,
         product6,
+        product9,
         heroBanner,
       ];
 }

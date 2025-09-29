@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tailor_project/representative/models/home_products_model.dart';
+import 'package:tailor_project/data/model/home_products_model.dart';
 import 'package:tailor_project/representative/screen/show_product_baju.dart';
 import 'package:tailor_project/utils/colors.dart';
 

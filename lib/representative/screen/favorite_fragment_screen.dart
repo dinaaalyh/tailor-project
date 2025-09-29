@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tailor_project/representative/modals/product.dart';
+import 'package:tailor_project/data/model/product.dart';
 import 'package:tailor_project/utils/colors.dart';
 
 final _money =

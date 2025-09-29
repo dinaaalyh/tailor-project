@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tailor_project/representative/modals/product.dart'; // ← PENTING
+import 'package:tailor_project/data/model/product.dart'; // ← PENTING
 import 'package:tailor_project/representative/screen/favorite_fragment_screen.dart';
 import 'package:tailor_project/utils/assets.gen.dart';
 import 'package:tailor_project/utils/colors.dart';
