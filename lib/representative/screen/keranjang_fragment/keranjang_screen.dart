@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tailor_project/representative/models/cart_item.dart';
+import 'package:tailor_project/data/model/cart_item.dart';
 import 'package:tailor_project/representative/widget/qty_control.dart';
 
 class KeranjangScreen extends StatefulWidget {
@@ -38,10 +38,8 @@ class _KeranjangScreenState extends State<KeranjangScreen> {
 
   // Getter ringkas
   bool get allChecked => items.every((e) => e.checked);
-  int get selectedCount =>
-      items.where((e) => e.checked).fold(0, (p, e) => p + e.qty);
-  int get totalSelectedPrice =>
-      items.where((e) => e.checked).fold(0, (p, e) => p + e.price * e.qty);
+  int get selectedCount => items.where((e) => e.checked).fold(0, (p, e) => p + e.qty);
+  int get totalSelectedPrice => items.where((e) => e.checked).fold(0, (p, e) => p + e.price * e.qty);
 
   // Formatter rupiah sederhana: 500000 -> Rp500.000
   String rupiah(int value) {
@@ -73,8 +71,7 @@ class _KeranjangScreenState extends State<KeranjangScreen> {
         backgroundColor: const Color(0xFF006171),
         foregroundColor: Colors.white,
         centerTitle: true,
-        title: const Text('My Basket',
-            style: TextStyle(fontWeight: FontWeight.w600)),
+        title: const Text('My Basket', style: TextStyle(fontWeight: FontWeight.w600)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
           onPressed: () {}, // TODO: navigator.pop()
@@ -107,8 +104,7 @@ class _KeranjangScreenState extends State<KeranjangScreen> {
                 return Container(
                   // full-bleed: tanpa margin & radius
                   color: Colors.white,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -120,8 +116,7 @@ class _KeranjangScreenState extends State<KeranjangScreen> {
                           height: 28,
                           child: Checkbox(
                             value: item.checked,
-                            onChanged: (v) =>
-                                setState(() => item.checked = v ?? false),
+                            onChanged: (v) => setState(() => item.checked = v ?? false),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(6),
                             ),
@@ -194,10 +189,7 @@ class _KeranjangScreenState extends State<KeranjangScreen> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
             decoration: const BoxDecoration(color: Colors.white, boxShadow: [
-              BoxShadow(
-                  color: Color(0x1A000000),
-                  blurRadius: 8,
-                  offset: Offset(0, -2))
+              BoxShadow(color: Color(0x1A000000), blurRadius: 8, offset: Offset(0, -2))
             ]),
             child: Row(
               children: [
@@ -207,20 +199,17 @@ class _KeranjangScreenState extends State<KeranjangScreen> {
                   child: Checkbox(
                     value: allChecked,
                     onChanged: (v) => _toggleAll(v ?? false),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6)),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
                     visualDensity: VisualDensity.compact,
                   ),
                 ),
                 const SizedBox(width: 6),
-                const Text('Semua',
-                    style: TextStyle(fontWeight: FontWeight.w600)),
+                const Text('Semua', style: TextStyle(fontWeight: FontWeight.w600)),
                 const Spacer(),
 
                 // Total
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   decoration: BoxDecoration(
                     color: const Color(0xFFF1F5F9),
                     borderRadius: BorderRadius.circular(10),
@@ -235,20 +224,17 @@ class _KeranjangScreenState extends State<KeranjangScreen> {
                 // Checkout
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                     backgroundColor: const Color(0xFF006171),
                     foregroundColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   ),
                   onPressed: selectedCount == 0
                       ? null
                       : () {
                           // TODO: aksi checkout
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                                content: Text('Checkout $selectedCount item')),
+                            SnackBar(content: Text('Checkout $selectedCount item')),
                           );
                         },
                   child: Text('Checkout ($selectedCount)'),
