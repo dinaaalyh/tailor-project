@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tailor_project/data/model/products_data.dart'; // impor data produk
+import 'package:tailor_project/data/model/products_data.dart'; 
 import 'package:tailor_project/representative/screen/show_product_screen.dart';
 import 'package:tailor_project/utils/colors.dart';
 
@@ -44,7 +44,6 @@ class ExploreFragmentScreen extends StatelessWidget {
               return InkWell(
                 borderRadius: BorderRadius.circular(12),
                 onTap: () {
-                  // navigasi ke halaman ShowProductScreen
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -60,7 +59,6 @@ class ExploreFragmentScreen extends StatelessWidget {
                   child: Stack(
                     fit: StackFit.expand,
                     children: [
-                      // ambil gambar pertama dari kategori
                       Image.asset(
                         category.products.first.image.path,
                         fit: BoxFit.cover,

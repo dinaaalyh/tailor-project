@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tailor_project/data/model/products_data.dart';
-import 'package:tailor_project/representative/screen/show_product_screen.dart'; // ubah ke ShowProductScreen
+import 'package:tailor_project/representative/screen/show_product_screen.dart';
+import 'package:tailor_project/representative/screen/product_detail_screen.dart';
 import 'package:tailor_project/utils/colors.dart';
 
 class DesignerCollection extends StatelessWidget {
@@ -61,32 +62,42 @@ class DesignerCollection extends StatelessWidget {
               itemCount: designerProducts.length,
               itemBuilder: (context, index) {
                 final product = designerProducts[index];
-                return Container(
-                  width: 140,
-                  margin: const EdgeInsets.only(right: 10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: product.image.image(
-                          width: 140,
-                          height: 140,
-                          fit: BoxFit.cover,
-                        ),
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductDetailScreen(product: product),
                       ),
-                      const SizedBox(height: 6),
-                      Text(
-                        product.name,
-                        style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
+                    );
+                  },
+                  child: Container(
+                    width: 140,
+                    margin: const EdgeInsets.only(right: 10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: product.image.image(
+                            width: 140,
+                            height: 140,
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        softWrap: true,
-                      ),
-                    ],
+                        const SizedBox(height: 6),
+                        Text(
+                          product.name,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          softWrap: true,
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },

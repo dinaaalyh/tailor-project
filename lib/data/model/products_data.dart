@@ -39,7 +39,7 @@ final List<ProductCategory> ProductCategories = [
       ),
       Product(
         id: 2,
-        name: 'Jesse Outer 3N ｜ T0993',
+        name: 'Jesse Outer 3N',
         description: 'Blazer dari Nonarara menggunakan corak batik motif tiga negeri. Tampak warna merah dari batik Lasem, biru dari Pekalongan, dan cokelat sogan dari batik Solo. Perpaduan motif batik ini memberikan kesan klasik yang kuat, tetapi Anda tetap dapat memadukannya dengan pakaian modern.',
         image: Assets.images.desCol2,
         price: 325000,
@@ -53,7 +53,7 @@ final List<ProductCategory> ProductCategories = [
       ),
       Product(
         id: 4,
-        name: 'Myesha ｜ 4601/4602',
+        name: 'Myesha',
         description: 'Jika Anda ingin terlihat lebih tinggi dan langsing, produk ini patut dicoba. Desain open front dengan garis vertikal memberi ilusi tubuh terlihat lebih jenjang.',
         image: Assets.images.desCol4,
         price: 479500,

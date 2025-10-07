@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tailor_project/data/model/products_data.dart';
+import 'package:tailor_project/representative/screen/product_detail_screen.dart';
 import 'package:tailor_project/representative/screen/show_product_screen.dart';
 import 'package:tailor_project/utils/colors.dart';
 
@@ -57,42 +58,52 @@ class TopTrends extends StatelessWidget {
               itemCount: topTrendsProducts.length,
               itemBuilder: (context, index) {
                 final product = topTrendsProducts[index];
-                return Container(
-                  width: 220,
-                  margin: const EdgeInsets.only(right: 10.0),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: product.image.image(
-                          width: 65,
-                          height: 65,
-                          fit: BoxFit.cover,
-                        ),
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductDetailScreen(product: product),
                       ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              product.name,
-                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              product.description,
-                              style: const TextStyle(fontSize: 10),
-                              maxLines: 3,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
+                    );
+                  },
+                  child: Container(
+                    width: 220,
+                    margin: const EdgeInsets.only(right: 10.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: product.image.image(
+                            width: 65,
+                            height: 65,
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      ),
-                    ],
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                product.name,
+                                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                product.description,
+                                style: const TextStyle(fontSize: 10),
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },

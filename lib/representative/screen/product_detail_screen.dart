@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tailor_project/data/model/products_data.dart';
 import 'package:tailor_project/representative/screen/payment_screen.dart';
 import 'package:tailor_project/utils/colors.dart';
 
 class ProductDetailScreen extends StatefulWidget {
-  const ProductDetailScreen({super.key});
+  final Product product;
+
+  const ProductDetailScreen({super.key, required this.product});
 
   @override
   State<ProductDetailScreen> createState() => _ProductDetailScreenState();
@@ -66,6 +69,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final product = widget.product;
+
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -76,11 +81,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               // ================== Hero image + icons ==================
               Stack(
                 children: [
-                  Image.asset(
-                    'assets/images/product9.png',
-                    width: double.infinity,
-                    height: 380,
-                    fit: BoxFit.cover,
+                  ClipRRect(
+                    child: product.image.image(
+                      width: double.infinity,
+                      height: 380,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   Positioned(
                     top: 16,
@@ -137,14 +143,22 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             ),
                           ),
                           const SizedBox(height: 4),
-                          const Row(
+                          Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                "Gamis Kaftan",
-                                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                              Flexible(
+                                child: Text(
+                                  product.name,
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  softWrap: true,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 2, 
+                                ),
                               ),
-                              Row(
+                              const Row(
                                 children: [
                                   Icon(Icons.star, color: Colors.orange, size: 18),
                                   Icon(Icons.star, color: Colors.orange, size: 18),
@@ -156,15 +170,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             ],
                           ),
                           const SizedBox(height: 8),
-                          const Text(
-                            "Gamis yang populer belakangan ini juga bisa menjadi opsi dalam menentukan gamis yang akan dipakai di hari lebaran. "
-                            "Gamis ini terlihat menawan dan sangat modis dengan terusan panjang dan bagian lengan yang melebar besar sehingga sangat cocok "
-                            "dipakai oleh orang dengan bentuk badan apapun.",
+                          Text(
+                            product.description ?? "Deskripsi belum tersedia.",
                             style: TextStyle(fontSize: 14),
                           ),
                           const SizedBox(height: 12),
                           Text(
-                            formatRupiah(500000),
+                            formatRupiah(product.price),
                             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 16),
