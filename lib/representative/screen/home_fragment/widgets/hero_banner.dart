@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:tailor_project/representative/screen/all_products_fragment/all_products_screen.dart';
+import 'package:tailor_project/representative/screen/keranjang_screen.dart';
 import 'package:tailor_project/utils/assets.gen.dart';
 import 'package:tailor_project/utils/colors.dart';
 
@@ -74,7 +76,12 @@ class _HeroBannerState extends State<HeroBanner> {
                       child: Assets.icons.profileIcon.image(width: 28, height: 28),
                     ),
                     const Spacer(),
-                    Assets.icons.cartIcon.image(width: 28, height: 28),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const KeranjangScreen()));
+                      },
+                      child: Assets.icons.cartIcon.image(width: 28, height: 28),
+                    ),
                   ],
                 ),
               ],
@@ -85,7 +92,9 @@ class _HeroBannerState extends State<HeroBanner> {
           child: Padding(
             padding: const EdgeInsets.only(left: 285, top: 290, right: 20),
             child: OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const AllProductsScreen()));
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: button,
                 side: BorderSide.none,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tailor_project/data/state/bloc/main_fragment_bloc/main_fragment_bloc.dart';
 import 'package:tailor_project/main.dart';
+import 'package:tailor_project/representative/screen/all_products_fragment/all_products_screen.dart';
 import 'package:tailor_project/representative/screen/explore_fragment/explore_fragment_screen.dart';
 import 'package:tailor_project/representative/screen/history_fragment/history_fragment_screen.dart';
 import 'package:tailor_project/representative/screen/home_fragment/home_fragment_screen.dart';
@@ -44,6 +45,7 @@ class MainFragmentScreen extends StatelessWidget {
             const ExploreFragmentScreen(),
             const HistoryFragmentScreen(),
             const ProfileFragmentScreen(),
+            const AllProductsScreen(),
           ][state.selectedIndex],
           bottomNavigationBar: Container(
             decoration: BoxDecoration(

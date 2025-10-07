@@ -129,6 +129,20 @@ class $AssetsImagesGen {
   /// File path: assets/images/product9.PNG
   AssetGenImage get product9 => const AssetGenImage('assets/images/product9.png');
 
+  //designer collection
+  AssetGenImage get desCol1 => const AssetGenImage('assets/images/designer-collection-1.jpeg');
+  AssetGenImage get desCol2 => const AssetGenImage('assets/images/designer-collection-2.jpg');
+  AssetGenImage get desCol3 => const AssetGenImage('assets/images/designer-collection-3.png');
+  AssetGenImage get desCol4 => const AssetGenImage('assets/images/designer-collection-4.jpg');
+  AssetGenImage get desCol5 => const AssetGenImage('assets/images/designer-collection-5.jpeg');
+
+   //top trends
+  AssetGenImage get topTrends1 => const AssetGenImage('assets/images/top-trends-1.jpg');
+  AssetGenImage get topTrends2 => const AssetGenImage('assets/images/top-trends-2.jpg');
+  AssetGenImage get topTrends3 => const AssetGenImage('assets/images/top-trends-3.jpg');
+  AssetGenImage get topTrends4 => const AssetGenImage('assets/images/top-trends-4.jpg');
+  AssetGenImage get topTrends5 => const AssetGenImage('assets/images/top-trends-5.jpg');
+
   //celana
   /// File path: assets/images/celana1.png
   AssetGenImage get celana1 => const AssetGenImage('assets/images/celana1.png');
@@ -182,6 +196,16 @@ class $AssetsImagesGen {
   /// List of all assets
   List<AssetGenImage> get values => [
         file,
+        topTrends1,
+        topTrends2,
+        topTrends3,
+        topTrends4,
+        topTrends5,
+        desCol1,
+        desCol2,
+        desCol3,
+        desCol4,
+        desCol5,
         designerProduct1,
         SplashScreen,
         googleLogo,

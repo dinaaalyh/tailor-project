@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:tailor_project/data/model/home_products_model.dart';
+import 'package:tailor_project/data/model/products_data.dart';
 import 'package:tailor_project/representative/screen/show_product_baju.dart';
 import 'package:tailor_project/utils/colors.dart';
 
 class DesignerCollection extends StatelessWidget {
-  const DesignerCollection({super.key});
+  DesignerCollection({super.key});
+
+  final designerProducts = ProductCategories.firstWhere((category) => category.title == 'Designer Collection').products;
 
   @override
   Widget build(BuildContext context) {
@@ -40,11 +42,12 @@ class DesignerCollection extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           SizedBox(
-            height: 185,
+            height: 210,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 5,
+              itemCount: designerProducts.length,
               itemBuilder: (context, index) {
+                final product = designerProducts[index];
                 return Container(
                   width: 140,
                   margin: const EdgeInsets.only(right: 10.0),
@@ -53,7 +56,7 @@ class DesignerCollection extends StatelessWidget {
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
-                        child: productImages[index].image(
+                        child: product.image.image(
                           width: 140,
                           height: 140,
                           fit: BoxFit.cover,
@@ -61,9 +64,11 @@ class DesignerCollection extends StatelessWidget {
                       ),
                       const SizedBox(height: 6),
                       Text(
-                        productNames[index],
+                        product.name,
                         style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                        maxLines: 2,
                         overflow: TextOverflow.ellipsis,
+                        softWrap: true, 
                       ),
                     ],
                   ),

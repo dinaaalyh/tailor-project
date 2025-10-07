@@ -74,16 +74,14 @@ class _KeranjangScreenState extends State<KeranjangScreen> {
         title: const Text('My Basket', style: TextStyle(fontWeight: FontWeight.w600)),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
-          onPressed: () {}, // TODO: navigator.pop()
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         actions: const [
           Padding(
             padding: EdgeInsets.only(right: 8),
             child: Icon(Icons.favorite, color: Color(0xFF890606)),
-          ),
-          Padding(
-            padding: EdgeInsets.only(right: 12),
-            child: Icon(Icons.shopping_cart, color: Colors.white),
           ),
         ],
       ),
