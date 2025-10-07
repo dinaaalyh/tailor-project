@@ -97,34 +97,39 @@ class HistoryDetailScreen extends StatelessWidget {
                           fit: BoxFit.cover,
                         ),
                         const SizedBox(width: 12),
-                        const Expanded(
+                        Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
                                 children: [
                                   Text(
-                                    "Gamis Kaftan",
-                                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                    order["name"] ?? "Produk",
+                                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                   Text(
-                                    "1x Item",
-                                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                                    "${order["quantity"] ?? 1}x Item",
+                                    style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 4),
+                              const SizedBox(height: 4),
                               Text(
-                                "Warna Putih\nSize: XL\nPanjang Baju: 110\nLingkar dada: 50\nLingkar pinggang: 70\nPanjang lengan: 60",
-                                style: TextStyle(fontSize: 13),
+                                "Warna: ${order["color"] ?? "-"}\n"
+                                "Size: ${order["size"] ?? "-"}\n"
+                                "Panjang Baju: ${order["panjangBaju"] ?? "-"}\n"
+                                "Lingkar Dada: ${order["lingkarDada"] ?? "-"}\n"
+                                "Lingkar Pinggang: ${order["lingkarPinggang"] ?? "-"}\n"
+                                "Panjang Lengan: ${order["panjangLengan"] ?? "-"}",
+                                style: const TextStyle(fontSize: 13),
                               ),
-                              SizedBox(height: 4),
+                              const SizedBox(height: 4),
                               Align(
                                 alignment: Alignment.centerRight,
                                 child: Text(
-                                  "Rp500.000",
-                                  style: TextStyle(
+                                  "Rp${order["total"]}",
+                                  style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -135,11 +140,11 @@ class HistoryDetailScreen extends StatelessWidget {
                       ],
                     ),
                     const Divider(color: grey2),
-                    const Align(
+                    Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        "Total Pemesanan : Rp500.000",
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        "Total Pemesanan : Rp${order["total"]}",
+                        style: const TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ),
                   ],
@@ -155,19 +160,19 @@ class HistoryDetailScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(6),
                 side: const BorderSide(color: grey2),
               ),
-              child: const Padding(
-                padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
                 child: Column(
                   children: [
-                    _RowDetail(title: "No. Pesanan", value: "Ed-Gamis 202"),
-                    _RowDetail(title: "Ongkir Pesanan", value: "Rp20.000"),
-                    _RowDetail(title: "Metode Pembayaran", value: "Gopay"),
-                    _RowDetail(title: "Dipesan tanggal", value: "15 Oct 2025"),
-                    _RowDetail(title: "Estimasi Selesai Baju", value: "29 Oct 2025"),
-                    Divider(color: grey2, thickness: 1.3),
+                    _RowDetail(title: "No. Pesanan", value: order["orderNumber"] ?? "-"),
+                    _RowDetail(title: "Ongkir Pesanan", value: "Rp${order["shippingFee"] ?? 0}"),
+                    _RowDetail(title: "Metode Pembayaran", value: order["paymentMethod"] ?? "-"),
+                    _RowDetail(title: "Dipesan tanggal", value: order["orderDate"] ?? "-"),
+                    _RowDetail(title: "Estimasi Selesai Baju", value: order["estimateDate"] ?? "-"),
+                    const Divider(color: grey2, thickness: 1.3),
                     _RowDetail(
                       title: "Total Pembayaran",
-                      value: "Rp520.000",
+                      value: "Rp${(order["total"] ?? 0) + (order["shippingFee"] ?? 0)}",
                       bold: true,
                     ),
                   ],

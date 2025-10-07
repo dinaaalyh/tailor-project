@@ -1,9 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:tailor_project/data/model/products_data.dart';
 import 'package:tailor_project/representative/screen/history_detail_screen.dart';
 import 'package:tailor_project/utils/colors.dart';
 
 class PaymentScreen extends StatefulWidget {
-  const PaymentScreen({super.key});
+  final Product product;
+  final int quantity;
+  final String color;
+  final String size;
+  final String panjangBaju;
+  final String lingkarDada;
+  final String lingkarPinggang;
+  final String panjangLengan;
+
+  const PaymentScreen({
+    super.key,
+    required this.product,
+    required this.quantity,
+    required this.color,
+    required this.size,
+    required this.panjangBaju,
+    required this.lingkarDada,
+    required this.lingkarPinggang,
+    required this.panjangLengan,
+  });
 
   @override
   State<PaymentScreen> createState() => _PaymentScreenState();
@@ -85,42 +105,44 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            'assets/images/product9.png',
+                          widget.product.image.image(
                             height: 100,
                             fit: BoxFit.cover,
                           ),
                           const SizedBox(width: 12),
-                          const Expanded(
+                          Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
                                   children: [
                                     Text(
-                                      "Gamis Kaftan",
-                                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                                      widget.product.name,
+                                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     Text(
-                                      "1x Item",
-                                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                                      "${widget.quantity}x Item",
+                                      style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                                     ),
                                   ],
                                 ),
-                                SizedBox(height: 4),
+                                const SizedBox(height: 4),
                                 Text(
-                                  "Warna Putih\nSize: XL\nPanjang Baju: 110\nLingkar dada: 50\nLingkar pinggang: 70\nPanjang lengan: 60",
-                                  style: TextStyle(fontSize: 13),
+                                  "Warna: ${widget.color}\n"
+                                  "Size: ${widget.size}\n"
+                                  "Panjang Baju: ${widget.panjangBaju}\n"
+                                  "Lingkar Dada: ${widget.lingkarDada}\n"
+                                  "Lingkar Pinggang: ${widget.lingkarPinggang}\n"
+                                  "Panjang Lengan: ${widget.panjangLengan}",
+                                  style: const TextStyle(fontSize: 13),
                                 ),
-                                SizedBox(height: 4),
+                                const SizedBox(height: 4),
                                 Align(
                                   alignment: Alignment.centerRight,
                                   child: Text(
-                                    "Rp500.000",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                    "Rp${(widget.product.price).toString()}",
+                                    style: const TextStyle(fontWeight: FontWeight.bold),
                                   ),
                                 ),
                               ],
@@ -129,11 +151,11 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         ],
                       ),
                       const Divider(color: grey2),
-                      const Align(
+                      Align(
                         alignment: Alignment.centerRight,
                         child: Text(
-                          "Total Pemesanan : Rp500.000",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          "Total Pemesanan : Rp${(widget.product.price * widget.quantity).toString()}",
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],
@@ -150,19 +172,19 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   borderRadius: BorderRadius.circular(6),
                   side: const BorderSide(color: grey2),
                 ),
-                child: const Padding(
-                  padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
                   child: Column(
                     children: [
-                      _RowDetail(title: "No. Pesanan", value: "Ed-Gamis 202"),
-                      _RowDetail(title: "Ongkir Pesanan", value: "Rp20.000"),
-                      _RowDetail(title: "Metode Pembayaran", value: "Gopay"),
-                      _RowDetail(title: "Dipesan tanggal", value: "15 Oct 2025"),
-                      _RowDetail(title: "Estimasi Selesai Baju", value: "29 Oct 2025"),
-                      Divider(color: grey2, thickness: 1.3),
+                      const _RowDetail(title: "No. Pesanan", value: "Ed-Gamis 202"),
+                      const _RowDetail(title: "Ongkir Pesanan", value: "Rp20.000"),
+                      const _RowDetail(title: "Metode Pembayaran", value: "Gopay"),
+                      const _RowDetail(title: "Dipesan tanggal", value: "15 Oct 2025"),
+                      const _RowDetail(title: "Estimasi Selesai Baju", value: "29 Oct 2025"),
+                      const Divider(color: grey2, thickness: 1.3),
                       _RowDetail(
                         title: "Total Pembayaran",
-                        value: "Rp520.000",
+                        value: "Rp${(widget.product.price * widget.quantity).toString()}",
                         bold: true,
                       ),
                     ],
@@ -190,15 +212,15 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       ),
                       const SizedBox(height: 8),
                       RichText(
-                        text: const TextSpan(
-                          style: TextStyle(fontSize: 13, color: Colors.black),
+                        text: TextSpan(
+                          style: const TextStyle(fontSize: 13, color: Colors.black),
                           children: [
-                            TextSpan(text: "Silahkan lakukan pembayaran ke nomor rekening berikut:\n"),
-                            TextSpan(text: "Bank BCA\n", style: TextStyle(fontWeight: FontWeight.bold)),
-                            TextSpan(text: "No. Rekening: 123-456-7890\n"),
-                            TextSpan(text: "Atas Nama: PT Tailor Project\n"),
-                            TextSpan(text: "\nTotal Pembayaran: ", style: TextStyle(fontWeight: FontWeight.bold)),
-                            TextSpan(text: "Rp520.000", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red)),
+                            const TextSpan(text: "Silahkan lakukan pembayaran ke nomor rekening berikut:\n"),
+                            const TextSpan(text: "Bank BCA\n", style: TextStyle(fontWeight: FontWeight.bold)),
+                            const TextSpan(text: "No. Rekening: 123-456-7890\n"),
+                            const TextSpan(text: "Atas Nama: PT Tailor Project\n"),
+                            const TextSpan(text: "\nTotal Pembayaran: ", style: TextStyle(fontWeight: FontWeight.bold)),
+                            TextSpan(text: "Rp${(widget.product.price * widget.quantity).toString()}", style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.red)),
                           ],
                         ),
                       ),
@@ -280,15 +302,30 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         const SnackBar(content: Text("Pembayaran diproses...")),
                       );
                       Future.delayed(const Duration(seconds: 1), () {
-                        Navigator.pushReplacement(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const HistoryDetailScreen(
+                            builder: (context) => HistoryDetailScreen(
                               order: {
-                                "status": "menunggu",
-                                "receiver": "Nisee Dumps",
-                                "address": "Jalan margasari no.41 Rt.02/Rw.08, Kec kesambi, Kel Sunyaragi",
-                                "image": "assets/images/product9.png",
+                                "image": widget.product.image.path,
+                                "name": widget.product.name,
+                                "quantity": widget.quantity,
+                                "color": widget.color,
+                                "size": widget.size,
+                                "panjangBaju": widget.panjangBaju,
+                                "lingkarDada": widget.lingkarDada,
+                                "lingkarPinggang": widget.lingkarPinggang,
+                                "panjangLengan": widget.panjangLengan,
+                                "price": widget.product.price,
+                                "total": widget.product.price * widget.quantity,
+                                "status": "Menunggu",
+                                "receiver": "Nama Penerima",
+                                "address": "Alamat Lengkap Pengiriman",
+                                "shippingFee": 20000,
+                                "paymentMethod": "Gopay",
+                                "orderNumber": "Ed-${widget.product.name.substring(0, 3)}${DateTime.now().millisecondsSinceEpoch % 1000}",
+                                "orderDate": "8 Oct 2025",
+                                "estimateDate": "22 Oct 2025",
                               },
                             ),
                           ),

@@ -155,7 +155,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   ),
                                   softWrap: true,
                                   overflow: TextOverflow.ellipsis,
-                                  maxLines: 2, 
+                                  maxLines: 2,
                                 ),
                               ),
                               const Row(
@@ -298,7 +298,16 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                             Navigator.push(
                                               context,
                                               MaterialPageRoute(
-                                                builder: (context) => const PaymentScreen(),
+                                                builder: (context) => PaymentScreen(
+                                                  product: product,
+                                                  quantity: _quantity,
+                                                  color: _warnaController.text,
+                                                  size: _sizes[_selectedSize],
+                                                  panjangBaju: _panjangBajuC.text,
+                                                  lingkarDada: _lingkarDadaC.text,
+                                                  lingkarPinggang: _lingkarPinggangC.text,
+                                                  panjangLengan: _panjangLenganC.text,
+                                                ),
                                               ),
                                             );
                                           }
