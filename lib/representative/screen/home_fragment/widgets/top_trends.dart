@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:tailor_project/data/model/products_data.dart';
-import 'package:tailor_project/representative/screen/top_trends.dart' as screen;
+import 'package:tailor_project/representative/screen/show_product_screen.dart';
 import 'package:tailor_project/utils/colors.dart';
 
 class TopTrends extends StatelessWidget {
   TopTrends({super.key});
 
-  final topTrendsProducts = ProductCategories.firstWhere((category) => category.title == 'Top Trends').products;
+  final topTrendsCategory = ProductCategories.firstWhere(
+    (category) => category.title == 'Top Trends',
+  );
 
   @override
   Widget build(BuildContext context) {
+    final topTrendsProducts = topTrendsCategory.products;
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
       child: Column(
@@ -30,7 +34,12 @@ class TopTrends extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const screen.TopTrends()),
+                    MaterialPageRoute(
+                      builder: (context) => ShowProductScreen(
+                        category: topTrendsCategory.title,
+                        products: topTrendsProducts,
+                      ),
+                    ),
                   );
                 },
                 child: const Text(

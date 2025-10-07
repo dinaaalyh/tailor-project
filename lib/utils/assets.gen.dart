@@ -136,12 +136,19 @@ class $AssetsImagesGen {
   AssetGenImage get desCol4 => const AssetGenImage('assets/images/designer-collection-4.jpg');
   AssetGenImage get desCol5 => const AssetGenImage('assets/images/designer-collection-5.jpeg');
 
-   //top trends
+  //top trends
   AssetGenImage get topTrends1 => const AssetGenImage('assets/images/top-trends-1.jpg');
   AssetGenImage get topTrends2 => const AssetGenImage('assets/images/top-trends-2.jpg');
   AssetGenImage get topTrends3 => const AssetGenImage('assets/images/top-trends-3.jpg');
   AssetGenImage get topTrends4 => const AssetGenImage('assets/images/top-trends-4.jpg');
   AssetGenImage get topTrends5 => const AssetGenImage('assets/images/top-trends-5.jpg');
+
+  //gamis
+  AssetGenImage get gamis1 => const AssetGenImage('assets/images/gamis-1.png');
+  AssetGenImage get gamis2 => const AssetGenImage('assets/images/gamis-2.png');
+  AssetGenImage get gamis3 => const AssetGenImage('assets/images/gamis-3.png');
+  AssetGenImage get gamis4 => const AssetGenImage('assets/images/gamis-4.png');
+  AssetGenImage get gamis5 => const AssetGenImage('assets/images/gamis-5.png');
 
   //celana
   /// File path: assets/images/celana1.png

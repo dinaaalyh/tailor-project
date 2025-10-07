@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tailor_project/data/model/product.dart';
+import 'package:tailor_project/data/model/products_data.dart';
 import 'package:tailor_project/utils/colors.dart';
 
-final _money =
-    NumberFormat.currency(locale: 'id_ID', symbol: 'Rp', decimalDigits: 0);
+final _money = NumberFormat.currency(locale: 'id_ID', symbol: 'Rp', decimalDigits: 0);
 String _price(num n) => _money.format(n);
-String _descOrFallback(String? d) => (d != null && d.trim().isNotEmpty)
-    ? d
-    : 'Gamis yang populer belakangan ini juga bisa menjadi opsi dalam';
+String _descOrFallback(String? d) => (d != null && d.trim().isNotEmpty) ? d : 'Gamis yang populer belakangan ini juga bisa menjadi opsi dalam';
 
 class FavoriteFragmentScreen extends StatefulWidget {
   final List<Product> items;
   final void Function(int productId)? onFavoriteRemoved;
-  const FavoriteFragmentScreen({super.key, required this.items, this.onFavoriteRemoved,  });
+  const FavoriteFragmentScreen({
+    super.key,
+    required this.items,
+    this.onFavoriteRemoved,
+  });
 
   @override
   State<FavoriteFragmentScreen> createState() => FavoriteFragmentScreenState();
@@ -27,13 +28,8 @@ class FavoriteFragmentScreenState extends State<FavoriteFragmentScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: bg,
-        title: const Center(
-            child: Text('My Favorite',
-                style: TextStyle(color: white, fontWeight: FontWeight.w600))),
-        leading: IconButton(
-            color: white,
-            icon: const Icon(Icons.arrow_back_ios_new),
-            onPressed: () => Navigator.pop(context)),
+        title: const Center(child: Text('My Favorite', style: TextStyle(color: white, fontWeight: FontWeight.w600))),
+        leading: IconButton(color: white, icon: const Icon(Icons.arrow_back_ios_new), onPressed: () => Navigator.pop(context)),
         actions: const [
           Icon(Icons.favorite_rounded, color: Color(0xff890606), size: 28),
           SizedBox(width: 12),
@@ -77,8 +73,7 @@ class ProductFavCard extends StatelessWidget {
             color: Colors.white,
             border: Border.all(color: const Color(0xFFE4E4E4)),
             boxShadow: const [
-              BoxShadow(
-                  blurRadius: 6, offset: Offset(0, 2), color: Color(0x11000000))
+              BoxShadow(blurRadius: 6, offset: Offset(0, 2), color: Color(0x11000000))
             ],
           ),
           child: Row(
@@ -109,31 +104,13 @@ class ProductFavCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(product.name,
-                          style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.black87)),
+                      Text(product.name, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.black87)),
                       const SizedBox(height: 2),
-                      const Text('• Size   • Warna',
-                          style: TextStyle(
-                              fontSize: 12.5,
-                              color: Color(0xFF6B6B6B),
-                              height: 1.2)),
+                      const Text('• Size   • Warna', style: TextStyle(fontSize: 12.5, color: Color(0xFF6B6B6B), height: 1.2)),
                       const SizedBox(height: 2),
-                      Text(_descOrFallback(product.description),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                          style: const TextStyle(
-                              fontSize: 12.5,
-                              color: Color(0xFF6B6B6B),
-                              height: 1.2)),
+                      Text(_descOrFallback(product.description), maxLines: 2, overflow: TextOverflow.ellipsis, style: const TextStyle(fontSize: 12.5, color: Color(0xFF6B6B6B), height: 1.2)),
                       const SizedBox(height: 8),
-                      Text(_price(product.price),
-                          style: const TextStyle(
-                              fontSize: 14.5,
-                              fontWeight: FontWeight.w800,
-                              color: Colors.black87)),
+                      Text(_price(product.price), style: const TextStyle(fontSize: 14.5, fontWeight: FontWeight.w800, color: Colors.black87)),
                     ],
                   ),
                 ),

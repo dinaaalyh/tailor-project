@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:tailor_project/data/model/products_data.dart';
-import 'package:tailor_project/representative/screen/show_product_baju.dart';
+import 'package:tailor_project/representative/screen/show_product_screen.dart'; // ubah ke ShowProductScreen
 import 'package:tailor_project/utils/colors.dart';
 
 class DesignerCollection extends StatelessWidget {
   DesignerCollection({super.key});
 
-  final designerProducts = ProductCategories.firstWhere((category) => category.title == 'Designer Collection').products;
+  final designerCategory = ProductCategories.firstWhere(
+    (category) => category.title == 'Designer Collection',
+  );
 
   @override
   Widget build(BuildContext context) {
+    final designerProducts = designerCategory.products;
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
       child: Column(
@@ -30,12 +34,21 @@ class DesignerCollection extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const ShowProductBaju()),
+                    MaterialPageRoute(
+                      builder: (context) => ShowProductScreen(
+                        category: designerCategory.title,
+                        products: designerProducts,
+                      ),
+                    ),
                   );
                 },
                 child: const Text(
                   'Show All',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: grey),
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                    color: grey,
+                  ),
                 ),
               ),
             ],
@@ -65,10 +78,13 @@ class DesignerCollection extends StatelessWidget {
                       const SizedBox(height: 6),
                       Text(
                         product.name,
-                        style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        softWrap: true, 
+                        softWrap: true,
                       ),
                     ],
                   ),

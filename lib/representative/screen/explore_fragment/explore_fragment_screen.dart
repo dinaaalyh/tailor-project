@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tailor_project/representative/screen/show_product.dart';
-import 'package:tailor_project/utils/assets.gen.dart';
+import 'package:tailor_project/data/model/products_data.dart'; // impor data produk
+import 'package:tailor_project/representative/screen/show_product_screen.dart';
 import 'package:tailor_project/utils/colors.dart';
 
 class ExploreFragmentScreen extends StatelessWidget {
@@ -8,25 +8,6 @@ class ExploreFragmentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, String>> categories = [
-      {
-        'title': 'Designer Collection',
-        'image': Assets.images.product9.path,
-      },
-      {
-        'title': 'Top Trends',
-        'image': Assets.images.product9.path,
-      },
-      {
-        'title': 'Baju',
-        'image': Assets.images.product9.path,
-      },
-      {
-        'title': 'Celana',
-        'image': Assets.images.product9.path,
-      },
-    ];
-
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
@@ -57,72 +38,56 @@ class ExploreFragmentScreen extends StatelessWidget {
             crossAxisSpacing: 12,
             mainAxisSpacing: 12,
             childAspectRatio: 5 / 2,
-            children: List.generate(
-              categories.length,
-              (index) {
-                final item = categories[index];
+            children: List.generate(ProductCategories.length, (index) {
+              final category = ProductCategories[index];
 
-                Widget page;
-                switch (index) {
-                  case 0:
-                    page = const ShowProduct();
-                    break;
-                  case 1:
-                    page = const ShowProduct();
-                    break;
-                  case 2:
-                    page = const ShowProduct();
-                    break;
-                  case 3:
-                    page = const ShowProduct();
-                    break;
-                  default:
-                    page = const Placeholder();
-                }
-
-                return InkWell(
+              return InkWell(
+                borderRadius: BorderRadius.circular(12),
+                onTap: () {
+                  // navigasi ke halaman ShowProductScreen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ShowProductScreen(
+                        category: category.title,
+                        products: category.products,
+                      ),
+                    ),
+                  );
+                },
+                child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => page),
-                    );
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        Image.asset(
-                          item['image']!,
-                          fit: BoxFit.cover,
-                        ),
-                        Container(
-                          color: Colors.black26,
-                        ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Text(
-                            item['title']!,
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              shadows: [
-                                Shadow(
-                                  blurRadius: 4,
-                                  color: Colors.black45,
-                                ),
-                              ],
-                            ),
+                  child: Stack(
+                    fit: StackFit.expand,
+                    children: [
+                      // ambil gambar pertama dari kategori
+                      Image.asset(
+                        category.products.first.image.path,
+                        fit: BoxFit.cover,
+                      ),
+                      Container(color: Colors.black26),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          category.title,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            shadows: [
+                              Shadow(
+                                blurRadius: 4,
+                                color: Colors.black45,
+                              ),
+                            ],
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                );
-              },
-            ),
+                ),
+              );
+            }),
           ),
         ),
       ),
