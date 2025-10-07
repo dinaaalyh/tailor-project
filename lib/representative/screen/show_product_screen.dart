@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tailor_project/data/model/products_data.dart';
 import 'package:tailor_project/representative/screen/favorite_fragment_screen.dart';
+import 'package:tailor_project/representative/screen/product_detail_screen.dart';
 import 'package:tailor_project/utils/assets.gen.dart';
 import 'package:tailor_project/utils/colors.dart';
 
@@ -79,16 +80,28 @@ class _ShowProductScreenState extends State<ShowProductScreen> {
           itemBuilder: (context, index) {
             final p = widget.products[index];
             final isFav = _favoriteIds.contains(p.id);
-            return buildProductCard(
-              assetImage: p.image,
-              productName: p.name,
-              price: p.price,
-              isFavorite: isFav,
-              onToggleFavorite: () {
-                setState(() {
-                  isFav ? _favoriteIds.remove(p.id) : _favoriteIds.add(p.id);
-                });
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => ProductDetailScreen(product: p),
+                  ),
+                );
               },
+              child: buildProductCard(
+                assetImage: p.image,
+                productName: p.name,
+                price: p.price,
+                isFavorite: isFav,
+                onToggleFavorite: () {
+                  setState(
+                    () {
+                      isFav ? _favoriteIds.remove(p.id) : _favoriteIds.add(p.id);
+                    },
+                  );
+                },
+              ),
             );
           },
         ),
